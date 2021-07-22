@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState, useEffect} from 'react';
 import Slider from 'react-slick';
 //components
 import Poster from '../Poster/Poster.component';
@@ -6,9 +6,18 @@ import Poster from '../Poster/Poster.component';
 //configs
 import PosterCarouselSettings from '../../config/PosterCarousel.config';
 import PremierImages from '../../config/TempPosters.config';
+import axios from 'axios';
 
 const Premier = () => {
-    
+    const [popularMovies, setPopularMovies] = useState([]);
+    useEffect(() => {
+        const requestPopularMovies = async () => {
+            const getPopularMovies = await axios.get("/movie/popular");
+            setPopularMovies(getPopularMovies.data.results);
+            
+        }
+        requestPopularMovies();
+    },[])
     
     
     
@@ -22,7 +31,7 @@ const Premier = () => {
             <h3 className="text-white px-4">Brand new releases every Friday</h3>
            <Slider {...PosterCarouselSettings}>
                 
-                {PremierImages.map((img) => (
+                {popularMovies.map((img) => (
                     <Poster {...img} isDark/>
                 ))}
            </Slider> 

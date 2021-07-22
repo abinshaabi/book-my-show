@@ -1,5 +1,5 @@
 import React from 'react';
-import { BiChevronRight,BiSearch,BiMenu, BiChevronDown } from "react-icons/bi";
+import { BiChevronRight,BiSearch,BiMenu, BiChevronDown, BiShareAlt, BiChevronUp } from "react-icons/bi";
 
 
 const NavSm = () => {
@@ -7,30 +7,19 @@ const NavSm = () => {
         <>
             <div className="text-white flex items-center justify-between ">
                 <div>
+                    
                     <h3 className="text-xl font-bold">It All Starts Here !</h3>
-                    <span className=" text-sm text-gray-400 flex items-center">
-                        Bengaluru <BiChevronRight />
-                    </span>
+                    
                 </div>
-                <div className="w-8 h-8 ">
-                    <BiSearch className="w-full h-full"/>
+                <div className="w-7 h-7 ">
+                    <BiShareAlt className="w-full h-full"/>
                 </div>
             </div>
         </>
     );
 };
 
-const NavMd = () => {
-    return (
-        <div className=" w-full  px-3 py-2 flex items-center gap-3 bg-white rounded-md">
-            <BiSearch className="text-gray-400 w-5 h-5"/>
-            <input type="search" className=" w-full bg-transparent border-none focus:outline-none" 
-                placeholder="Search for Movies, Events, Plays, Sports and Activities. " 
-            />
-        </div>
-    );
-    
-};
+
 
 const NavLg = () => {
     return (
@@ -65,16 +54,16 @@ const NavLg = () => {
 };
 
 
-const Navbar = () =>{
+const MovieNavbar = () =>{
     return (
         <>
-            <nav className="bg-bms-700 px-4 py-2">
+            <nav className="absolute inset-x-0 z-30 bg-opacity-10 backdrop-filter backdrop-blur-lg lg:relative lg:bg-bms-700 px-4 py-2">
                 <div className="md:hidden ">
                     <NavSm />
                     
                 </div>
-                <div className="hidden md:flex lg:hidden">
-                    <NavMd />
+                <div className="hidden md:block lg:hidden">
+                    <NavSm />
                 </div>
                 <div className="hidden lg:flex">
                     <NavLg />
@@ -85,4 +74,4 @@ const Navbar = () =>{
     );
 };
 
-export default Navbar;
+export default MovieNavbar;
