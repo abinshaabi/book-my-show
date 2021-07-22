@@ -3,6 +3,7 @@ import HeroSlider from "react-slick";
 import axios from 'axios';
 
 import {NextArrow, PrevArrow} from "./Arrows.component"
+import { Link } from 'react-router-dom';
 
 
 const HeroCarousel = () => {
@@ -44,9 +45,11 @@ const HeroCarousel = () => {
             <div className="lg:hidden">
                 <HeroSlider {...settings} >
                     {images.map((image) => (
-                        <div className="w-full h-56 md:h-80 py-3 border-none focus:outline-none">
-                            <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="images" className="w-full h-full " />
-                        </div>
+                        <Link to={`/movies/${image.id}`}>
+                            <div className="w-full h-auto md:h-auto py-3 border-none focus:outline-none">
+                                <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="images" className="w-full h-full " />
+                            </div>
+                        </Link>
                     ))}
                 </HeroSlider>
             </div>
@@ -54,9 +57,11 @@ const HeroCarousel = () => {
             <div className="hidden lg:block">
                 <HeroSlider {...settingsLg} >
                     {images.map((image) => (
-                        <div className="w-full h-96 px-2 py-3 border-none focus:outline-none ">
-                            <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="images" className="w-full h-full rounded-md " />
-                        </div>
+                        <Link to={`/movies/${image.id}`}>
+                            <div className="w-full h-96 px-2 py-3 border-none focus:outline-none ">
+                                <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="images" className="w-full h-full rounded-md " />
+                            </div>
+                        </Link>
                     ))}
                 </HeroSlider>
             </div>
