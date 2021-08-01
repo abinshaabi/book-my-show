@@ -9,8 +9,8 @@ const Cast = (props) => {
                     alt="crew man"
                     className="w-full h-full rounded-full" />
                 </div>
-                <h1 className="text-lg text-gray-800">{props.castName}</h1>
-                <h5 className="text-md  text-gray-600">as {props.role}</h5>
+                <h1 className="text-lg w-32 text-gray-800">{props.castName}</h1>
+                <h3  className="text-md  w-32 text-gray-600 " >as {props.role}.</h3>
             </div>
         </>
     )
